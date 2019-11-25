@@ -1,0 +1,42 @@
+class EventsController < ApplicationController
+
+    def index
+        events = Event.all
+        render json: events, status: 200
+      end
+    
+      def show
+        if event
+          render json: event, status: 200
+        else
+          render json: { message: "No such event exists" }
+        end
+      end
+
+    def create
+        event = Event.create(event_params)
+        if event.valid?
+          (render json: event)
+        else
+          render json: {errors: @review.errors.full_messages}
+        end
+      end
+
+      def update 
+            event = Event.find(params[:id])
+            @Event.update(event_params)
+            render json: event
+        end 
+
+        def destroy
+            event = Event.find(params[:id])
+            event.destroy
+        end
+
+        private
+      
+  def event_params
+    params.permit(:date, :time, :location, :content)
+  end
+
+end
