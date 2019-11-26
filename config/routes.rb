@@ -9,5 +9,17 @@ Rails.application.routes.draw do
   post '/login', to: 'login#login'
   get '/profile', to: 'users#profile'
   post '/signup', to: 'users#create'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  resources :user do 
+    resources :user_recipes
+  end 
+
+  resources :user do 
+    resources :user_restaurants
+  end 
+
+  resources :user do 
+    resources :events
+  end 
+
 end
