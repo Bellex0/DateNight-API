@@ -31,39 +31,16 @@ class UsersController < ApplicationController
           end
         end
 
-      
+      def favorites 
+      user = User.find(params[:id])
+      render json: user.favorites
+      end
 
-
-        # def edit
-        #     token = request.headers["Authorization"]
-        #     if token
-        #         decoded_token = JWT.decode(
-        #             token,
-        #             secret,
-        #             true,
-        #             { algorithm: "HS256"}
-        #         )
-        #         user = User.find(decoded_token[0]["user_id"])
-        #         username = user.username == user_params[:username] ? user.username : user_params[:username]
-        #         name= user.name == user_params[:name] ? user.name : user_params[:name]
-        #         location= user.location == user_params[:location] ? user.location : user_params[:location]
-        #         image = user.image == user_params[:image] ? user.image : user_params[:image]
-        #         password = user.password == user_params[:password] ? user.password : user_params[:password]
-        #         user.update(username: username, name: name, location: location, image:image, password:password )
-        #         end
-        #         render json: {
-        #             user: {
-        #                 id: user.id,
-        #                 username: user.username,
-        #                 name: user.name,
-        #                 location: user.location,
-        #                 image: user.image,
-        #                 password: user.password
-        #             },
-        #             token: token
-        #         }
-        #   end
-        # end
+      def destroy_favorites
+        user = User.find(params[:id])
+        favorite.Favorite.find(params[:id])
+        user.favorite.destroy 
+      end
     
         def destroy
             token = request.headers["Authorization"]
