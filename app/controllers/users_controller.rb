@@ -38,9 +38,20 @@ class UsersController < ApplicationController
 
       def destroy_favorites
         user = User.find(params[:id])
-        favorite.Favorite.find(params[:id])
+        favorite= Favorite.find(params[:id])
         user.favorite.destroy 
       end
+
+      def favorite_places
+        user = User.find(params[:id])
+        render json: user.favorite_places
+        end
+  
+        def destroy_favorite_places
+          user = User.find(params[:id])
+          favorite = FavoritePlace.find(params[:id])
+          user.favorite.destroy 
+        end
     
         def destroy
             token = request.headers["Authorization"]

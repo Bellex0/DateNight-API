@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :favorite_places
   resources :favorites
   resources :user_restaurants
   resources :user_recipes
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   # post 'user/favorites', to: 'users#favorites'
   # post "/user/favorites", to: "favorites#create"
   get 'user/:id/favorites', to: 'users#favorites'
+  get 'user/:id/favorite_places', to: 'users#favorite_places'
  
 
   resources :user do 
@@ -22,6 +24,10 @@ Rails.application.routes.draw do
   resources :user do 
     resources :favorites
   end 
+
+  resources :user do 
+    resources :favorite_places
+  end
 
 
 end

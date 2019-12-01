@@ -5,6 +5,8 @@ class User < ApplicationRecord
     has_many :restaurants, through: :user_restaurants
     has_many :events
     has_many :favorites
+    has_many :favorite_places
+
     
     has_secure_password
     validates :username, uniqueness: { case_sensitive: false }
