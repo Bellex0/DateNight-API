@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     
       def profile
-        byebug
         render json: current_user
       end
       
@@ -45,6 +44,11 @@ class UsersController < ApplicationController
       def favorite_places
         user = User.find(params[:id])
         render json: user.favorite_places
+        end
+
+        def events 
+          user = User.find(params[:id])
+        render json: user.events
         end
   
         def destroy_favorite_places

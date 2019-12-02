@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # post "/user/favorites", to: "favorites#create"
   get 'user/:id/favorites', to: 'users#favorites'
   get 'user/:id/favorite_places', to: 'users#favorite_places'
+  get 'user/:id/events', to: 'users#events'
  
 
   resources :user do 

@@ -5,26 +5,30 @@ class EventsController < ApplicationController
         render json: events, status: 200
       end
     
-      def show
-        if event
-          render json: event, status: 200
-        else
-          render json: { message: "No such event exists" }
-        end
-      end
+      # def show
+      #   if event
+      #     render json: event, status: 200
+      #   else
+      #     render json: { message: "No such event exists" }
+      #   end
+      # end
 
     def create
+      user = User.find(params[:user_id])
         event = Event.create(event_params)
         if event.valid?
-          (render json: event)
+          user.events << event
+          render json: event
         else
-          render json: {errors: @review.errors.full_messages}
+          render json: {errors: event.errors.full_messages}
         end
       end
 
+
       def update 
-            event = Event.find(params[:id])
-            @Event.update(event_params)
+        user = User.find(params[:user_id])
+        event = Event.find(params[:id])
+        user.event.update(event_params)
             render json: event
         end 
 
@@ -36,7 +40,8 @@ class EventsController < ApplicationController
         private
       
   def event_params
-    params.permit(:date, :time, :location, :content)
+    params.permit(:date, :time, :location, :content, :user_id)
   end
+
 
 end
