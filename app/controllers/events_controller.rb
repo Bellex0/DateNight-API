@@ -26,9 +26,10 @@ class EventsController < ApplicationController
 
 
       def update 
-        user = User.find(params[:user_id])
+        # user = User.find(params[:user_id])
+        # byebug
         event = Event.find(params[:id])
-        user.event.update(event_params)
+        event.update(event_params)
             render json: event
         end 
 
