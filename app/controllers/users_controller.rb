@@ -22,13 +22,26 @@ class UsersController < ApplicationController
         end 
   
       def create
+        
+          image = Cloudinary::Uploader.upload(user_params[:image])
+          # byebug
           user = User.create(user_params)
+          user.update(image: image["url"])
           if user.valid?
+            # byebug
             render json: {token: create_token(user.id), user_id: user.id} 
           else
             render json: {errors: user.errors.full_messages}, status: 422
           end
         end
+
+      def update
+        user = User.find(params[:id])
+        image = Cloudinary::Uploader.upload(user_params[:image])
+        user.update(user_params)
+        user.update(image: image["url"])
+        render json: user
+      end
 
       def favorites 
       user = User.find(params[:id])

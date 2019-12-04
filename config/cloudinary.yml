@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: bellex0
+  api_key: '389793194881396'
+  api_secret: 2vJHUF9CS4yc04QZviNuwdiImqs
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: bellex0
+  api_key: '389793194881396'
+  api_secret: 2vJHUF9CS4yc04QZviNuwdiImqs
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: bellex0
+  api_key: '389793194881396'
+  api_secret: 2vJHUF9CS4yc04QZviNuwdiImqs
+  enhance_image_tag: true
+  static_file_support: false
