@@ -30,5 +30,6 @@ Rails.application.routes.draw do
     resources :favorite_places
   end
 
+  
 
 end
