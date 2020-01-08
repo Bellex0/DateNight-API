@@ -56,7 +56,7 @@ pg, '>= 0.18', '< 2.0'
  
 ## Installation
 1) Fork (optional) and clone or download this repository to local system
-2) Use preferred text editor and/or terminal to navigate into DateNight-API directory
+2) Use preferred text editor and/or terminal to navigate into `DateNight-API` directory
 3) Run `bundle install` (or `bundle i`) in terminal
 4) Run `rails db:create` in terminal to create database
 5) Run `rails db:migrate` in terminal to initialize database
